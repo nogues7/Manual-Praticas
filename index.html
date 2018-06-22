@@ -1,0 +1,1433 @@
+<!doctype html>
+<!--
+  Material Design Lite
+  Copyright 2015 Google Inc. All rights reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
+<html lang="pt">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Manual de Práticas - TI Isabela Flores</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/android-desktop.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <link rel="shortcut icon" href="images/favicon.png">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_purple-pink.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link type="text/css" rel="stylesheet" href="SyntaxHighlighter/Styles/SyntaxHighlighter.css"></link>
+  </head>
+  <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+          <span style="font-size: 34px;">Manual de Práticas - TI Isabela Flores</span>
+        </div>
+<!-- MENU ############################################################################################################-->
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+          <a href="#overview" class="mdl-layout__tab is-active">Introdução</a>
+          <a href="#aba1" class="mdl-layout__tab">PHP/Javascript e Regras Gerais</a>
+          <a href="#aba2" class="mdl-layout__tab">Banco de Dados</a>
+          <a href="#aba3" class="mdl-layout__tab">CSS/HTML</a>
+          <!--<a href="#aba4" class="mdl-layout__tab">Controle de Versão</a>-->
+          <a href="#aba5" class="mdl-layout__tab">Arquivos e Diretórios</a>
+          <a href="#aba6" class="mdl-layout__tab">Estruturas e Servidores</a>
+        </div>
+<!-- ./ MENU ############################################################################################################-->
+      </header>
+      <main class="mdl-layout__content">
+<!-- Geral ############################################################################################################-->
+        <div class="mdl-layout__tab-panel is-active" id="overview">
+          <section class="section-center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" >
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text">
+                <h3>INTRODUÇÃO</h3>
+                <center>Este manual contém todas as práticas de desenvolvimento da equipe Isabela Flores.</center>
+                <h4>Pressupostos</h4>
+                <u>Não crie seus códigos para que somente Deus entenda!</u><br>
+                <br>
+                Evite Codificações: não crie código. Somos programadores, não <u>criptólogos</u>. Ao desenvolver uma aplicação, um sistema, o que for, é necessário fazê-lo de forma que seja possível entender a qualquer tempo, seja no decorrer do desenvolvimento, seja daqui um bom tempo.<br>
+                <br>
+                <b>ESCREVA PARA PROGRAMADORES</b> <br>
+                 <br>
+                Ao escrever o código é necessário ter em mente, que outro programador terá que manter o código escrito por você. Você não é imortal, um dia você pode estar doente, ausente, ou até mesmo um dia sairá da linha de frente e se dedicará a parte administrativa da empresa, nesse caso terá que deixar seu código para um outro programador dar continuidade nas futuras atualizações, e dedicar seu tempo nos negócios da empresa.<br>
+                <br>
+                É nessas horas que um código bem escrito, feito para pessoas e não para máquinas tem suas vantagens. O programador vai ter a sua frente um código enxuto e de fácil manutenção.
+                   <h3 class="alert-titulo">Ambiente de Produção -  Regras Importantes</h3>
+                <div>
+                  <p>
+                  <ul class="alert-texto">
+                    <li>
+                        Nunca deixar funções do tipo <i>var_dump()</i>, <i>error_log()</i>, etc no código. 
+                    </li>
+                    <li>
+                        Nunca faça mais requisições ajax que necessário. Tente trazer todas as informações necessárias em apenas uma requisição.
+                    </li>
+                    <li>
+                        Nunca retorne mais do que o necessário nas requisições ajax. Se precisar do nome do cliente para mostrar na tela, não é necessário retornar com ajax as tags, o nome, o style, etc para ser mostrado na tela, já deixe toda estrutura pronta no html e apenas retorne o nome do cliente puro e simplesmente com ajax.
+                    </li>
+                    <li>
+                        Use o máximo de cache possível. Apenas não cacheie informações que podem variar por usuário. 
+                    </li>
+                    <li>
+                        Cuidado com os códigos e comentários feitos em HTML e JavaScript eles aparecem inteiros no navegador.
+                    </li>
+                    <li>
+                        Usa apenas recursos computacionais necessários (memória, processador)! Não inicialize mais variáveis do que vai usar, não crie código complexos com inúmeras linhas, MENOS É MAIS!
+                    </li>
+                    <li>
+                        Código inútil: todo código que não está sendo utilizado deve ser descartado. Não há necessidade de se manter algo inútil.
+                    </li>
+                    <li>
+                        NUNCA use loop dentro de loop, isso é ineficiência de lógica! Repense a lógica do seu código!
+                    </li>
+                  </ul>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+<!-- PHP/Javascript e Regras Gerais #####################################################################################-->
+        <div class="mdl-layout__tab-panel" id="aba1">
+         <section class="section-center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" >
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text">
+                <h3>PHP/JAVASCRIPT e REGRAS GERAIS</h3>
+                <ul class="toc">
+                  <span>Índice Alfabético</span>
+                  <a href="#lorem5">Abertura e fechamento de estruturas</a>
+                  <a href="#lorem1">Abreviações nos nomes</a>
+                  <a href="#lorem2">Abrir e fechar o PHP</a>
+                  <a href="#lorem7">Classes</a>
+                  <a href="#lorem8">Comentários</a>
+                  <a href="#lorem6">Funções e métodos</a>
+                  <a href="#lorem4">Indentação</a>
+                  <a href="#lorem10">Mensagens de retorno de erro, sucesso e alerta</a>
+                  <a href="#lorem9">Use sempre DRY</a>
+                  <a href="#lorem3">Variáveis</a>
+                </ul>
+                <h4 id="lorem1">Abreviações nos nomes</h4>
+                <div>
+                    <p>
+                      Evite usar, se necessário use, mas somente use abreviações se ela for de conhecimento geral e se seguir o padrão do resto do sistema. Por ex.: se em algum lugar no sistema já se abrevia pagamento como pgto, não vá tentar ser o diferente e abreviar como pgmto ou pmto, o mínimo que você vai conseguir é não ser entendido. 
+                    </p>
+                    <p>
+                      <b>Abreviações padrões:</b>
+                    </p>
+                    <p>
+                      <ul>
+                        <li>
+                           pagamento: pgto
+                        </li>
+                        <li>
+                           data: dt
+                        </li>
+                        <li>
+                           pedido: ped
+                        </li>
+                        <li>
+                           produto: prod
+                        </li>
+                        <li>
+                           valor: vlr
+                        </li>
+                        <li>
+                           hora: hr
+                        </li>
+                        <li>
+                           floricultura: floric
+                        </li>
+                        <li>
+                           número: num
+                        </li>
+                        <li>
+                           nota fiscal: nfe  
+                        </li>
+                        <li>
+                           negociador: neg
+                        </li>
+                        <li>
+                           follow up: fup
+                        </li>
+                        <li>
+                           confirmação de entrega: ce
+                        </li>
+                        <li>
+                          estorno: est
+                        </li>
+                      </ul>
+                    </p>
+                </div>
+                <h4  id="lorem2">Abrir e fechar o PHP</h4>
+                <div>
+                  <p>
+                    <ul>
+                        <li>
+                          Use sempre <i><?php ?></i>, nunca outras variâncias.
+                        </li>
+                    </ul>
+                  </p>
+                </div>
+                <h4  id="lorem3">Variáveis</h4>
+                <div>
+                  <p>
+                    <ul>
+                        <li>
+                          Só criar variáveis no escopo que ela será usada;
+                        </li>
+                        <li>
+                          Sempre que não for mais usar uma variável, limpe o endereço de memória dela com o comando: <i>unset($variavel)</i>;
+                        </li>
+                        <li>
+                          <b>Nome da variável:</b>
+                          Usar o nome que identifica o que exatamente essa variável armazena, seja sucinto, você deve ser capaz de saber o que ela contém apenas com ele, "valor", "igual", "dados" não são nomes válidos para nenhum caso. você deve ser capaz de saber o que ela contém;
+                        </li>
+                        <li>
+                          <b>Use Nomes Pronunciáveis:</b>
+                          Como <i>function hndlimghght</i>, mas se fosse um <i>function manipularTamanhoImagem</i>, milhares de vezes mais fácil de memorizar, dizer para o colega do lado e de procurar no meio de centenas ou milhares de linhas de código.
+                          <br>
+                          <b>Ex.</b>: Preciso armazenar numa variável a data e hora de hoje para usar na minha função. Nome da variável: <i>$data_hora_atual</i>;
+                        </li>
+                        <li>
+                          Não inicie nomes de variáveis com o_, obj_, m_, etc. Uma variável não precisa de prefixos indicando o estado da variável;
+                        </li>
+                        <li>
+                          Use apenas palavras em português;
+                        </li>
+                    </ul>
+                  </p>
+                  <p>
+                    <b>Ex.:</b>
+                    <pre name="code" class="php">
+                        //1- Use palavras separadas com underline
+                        //2- Strings usadas com aspas duplas
+                        $nome_completo = "Joao Silva";
+
+                        //3- int e float usados sem aspas
+                        $idade = 25;
+
+                        //4- booleanos usados com true ou false
+                        $produto_bloqueado = false;
+                        $enviar_email = true;
+
+                        //5 - Array
+                        //Variáveis que representam mais de uma informação como arrays devem ter o nome no plural, todos os outros tipos devem ter nome no singular.
+                        $produtos = array();
+                    </pre>
+                  </p>
+                </div>
+                <h4  id="lorem4">Indentação</h4>
+                <div>
+                  <p>
+                    Se você <u>não</u> usa indentações e espaços em branco no seu código, o resultado parece uma pintura de Jackson Pollack. Garanta que seu código seja <u>legível</u> e fácil de pesquisar, assim será mais fácil alterá-lo tanto pra você do futuro quanto para o coleguinha ao lado.
+                  </p>
+                  <p>
+                    <b>Ex.:</b>
+                    <pre name="code" class="php">
+                      class Cliente{
+                        function salvarCliente($cliente){
+                          if($cliente == 1){
+                            //Salvar cliente      
+                          }else{
+                            //Não salvar cliente
+                          }
+                        }
+                      }
+                    </pre>
+                  </p>
+                </div>
+                <h4  id="lorem5">Abertura e fechamento de estruturas</h4>
+                <div>
+                  <p>
+                    <ul>
+                        <li>
+                          A abertura de chaves de estruturas de controle devem vir na mesma linha com um espaço em branco.
+                        </li>
+                        <li>
+                          NUNCA escreva uma estrutura sem usar as chaves ({). Mesmo que a condição possua apenas uma linha.
+                        </li>
+                    </ul>
+                  </p>
+                  <p>  
+                    <b>Ex. condicional: </b>
+                    <pre name="code" class="php">
+                      if($floricultura == "Flores Online"){
+                        //..
+                      }
+                    </pre>
+                  </p>
+                  <p>  
+                    <b>Ex. loop: </b>
+                    <pre name="code" class="php">
+                      foreach($produtos as $produto){
+                        //..    
+                      }
+                    </pre>
+                  </p>
+                  <p>  
+                    <b>Ex. de classe: </b>
+                    <pre name="code" class="php">
+                      class Produto{
+                        //..
+                      }
+                    </pre>
+                  </p>
+                </div>
+                <h4  id="lorem6">Funções e métodos</h4>
+                <div>
+                  <p>
+                    <ul>
+                        <li>
+                          Devem ter um nome que representa o que aquele código faz como verbo(nunca com nome do que ela retorna, ou do que ela recebe, e sim qual a função daquele código).
+                        </li>
+                        <li>
+                          Será no singular ou plural dependendo do retorno. (Se retornar um array de clientes, a função terá o nome no plural, se salvar apenas um cliente, a função será no singular)
+                        </li>
+                        <li>
+                          Devem começar com letra minúscula e da segunda palavra adiante a primeira letra da palavra em maiúsculo. 
+                        </li>
+                        <li>
+                          SEMPRE usar os comentários de início de função que explicam mais sobre a função. Ver mais em Comentários.
+                        </li>
+                        <li>
+                          Faça apenas uma coisa: os métodos devem fazer uma coisa e devem fazê-la bem. O motivo de criarmos uma função é para decompor um conceito maior em uma série de passos no próximo nível de abstração.
+                        </li>
+                    </ul>
+                  </p>
+                  <p>
+                    <b>Ex.:</b>
+                    <pre name="code" class="php">
+                      function salvarCliente(){
+                        //..    
+                      }
+                    </pre>
+                  </p>
+                  <p>
+                    <b>Ex. de nomes com começos mais comuns (enviar,salvar,consultar,calcular,editar):</b>
+                    <pre name="code" class="php">
+                      function enviarEmailNovoPedido(){}
+                      function salvarPedido(){}
+                      function consultarClientes(){}
+                      function calcularValorCompra(){}
+                      function editarCliente(){}
+                    </pre>
+                  </p>
+                  <p>
+                    <ul>
+                        <li>
+                          Funções começadas em get e set só podem ser usadas em classes de objetos para pegar ou setar um atributo dentro dele.
+                        </li>
+                        <li>
+                          As classes devem ser pequenas: assim como métodos ou funções, a primeira regra para classes é que devem ser pequenas. A segunda é que devem ser menores ainda. A classe deve possuir poucas responsabilidades. O nome da classe deve descrever suas responsabilidades.
+                        </li>
+                    </ul>
+                  </p>
+                </div>
+                <h4  id="lorem7">Classes</h4>
+                <div>
+                  <p>
+                    <ul>
+                        <li>
+                          Em todo começo de classe é necessário começar com os comentários explicando sobre aquela classe. Ver mais em Comentários.
+                        </li>
+                        <li>
+                          Nomes de classes devem ter letra maiúscula em todo começo de palavra. E deve identificar o mais sucinto possível o que representa aquela classe.
+                        </li>
+                    </ul>
+                  </p>
+                  <p>
+                    <b>Ex.:</b>
+                    <pre name="code" class="php">
+                      class Cliente{
+                        //..    
+                      } 
+                      class EnderecoCliente{
+                        //..    
+                      }
+                    </pre>
+                  </p>
+                </div>
+                <h4  id="lorem8">Comentários</h4>
+                <div>
+                  <p>
+                    <b>Usando comentários <u>parte 1</u>:</b>
+                    <ul>
+                        <li>
+                          Sempre que houver um código um pouco mais complexo ou com necessidade de um complemento para o entendimento correto da codificação é melhor comentar para o entendimento mais rápido e simples;
+                        </li>
+                        <li>
+                          Comentar sempre na linha da ação que está sendo explicada;
+                        </li>
+                    </ul>
+                  </p>
+                  <p>
+                    <b>Ex.:</b>
+                    <pre name="code" class="php">
+                      foreach($produtos as $produto){
+                        if($produto->getNome() == "Buquê de 12 Rosas Vermelhas"){ //Condicao que verifica se o produto é um buque de 12 rosas para somá-lo no total de vendas a parte
+                          $qtd_buque++;
+                        }
+                      }
+                    </pre>
+                  </p>
+                  <p>
+                    <ul>
+                        <li>
+                          <b>Resumindo a parte 1:</b>
+                        </li>
+                    </ul>
+                  </p>
+                  <p>
+                    Esses comentários servem para explicar seu código. Entretanto, não escreva comentários para explicar um código ruim, reescreva-o. Não amontoamos comentários dogmáticos e supérfluos. Nada é tão prejudicial quanto um velho comentário mal feito que dissemina mentiras e informações incorretas. O uso de comentários é normalmente para compensar nosso fracasso em expressar a intenção do código em si.
+                  </p>
+                  <p>
+                    <b>Usando comentários <u>parte 2</u>:</b> De forma a manter a conciencia limpa:
+                    <ul>
+                        <li>
+                          Sempre antes da declaração da função faça um comentário longo (/* */) explicando:
+                        </li>
+                    </ul>
+                  </p>
+                  <p>
+                      1) Explicando a função<br>
+                      2) Explicando o que representa cada parametro, se houver.<br>
+                      3) Explicando o retorno da função, se não houver retorno colocar 'void'.<br>
+                      Na seguinte estrutura:
+                  </p>
+                  <p>
+                    <b>Ex.:</b>
+                    <pre name="code" class="php">
+                      /*
+                      * Esta função calcula o valor total que será pago no pedido de 
+                      * acordo com o produto passado por parametro.
+                      *
+                      * @param: $produto: Objeto com o produto adicionado ao carrinho
+                      *         $qtd_produto: int com a quantidade de produtos comprados
+                      *
+                      * @return: $valorTotal: decimal com a quantidade total da compra. 
+                      *
+                      * @author Jéssica Vachelli
+                      */
+                      function calcularValorTotalPedido($produto, $qtd_produto){
+                        //..
+                        return $valorTotal;
+                      }
+                    </pre>
+                  </p>
+                </div>
+                <h4  id="lorem9">Use sempre DRY</h4>
+                <div>
+                  <p>
+                    Don’t Repeat Yourself(ou simplesmente, não se repita). Como o nome indica, é garantir que você não escreva código redundante.  
+                  </p>
+                  <p>
+                    <b>Ex.:</b>
+                    Neste exemplo se precisar alterar alguma variável de conexão é simples com o DRY já que as variáveis estarão no começo do código.
+                    <pre name="code" class="php">
+                      //CÓDIGO SEM DRY:
+                      $mysql = mysql_connect('localhost', 'reinhold', 'secret_hash');
+                      mysql_select_db('wordpress') or die("cannot select DB");
+                    
+                      //Agora, com a abordagem DRY:
+                      $bd_host = 'localhost';
+                      $bd_usuario = 'reinhold';
+                      $bd_senha = 'secret_hash';
+                      $bd_banco_dados = 'wordpress';
+                         
+                      $mysql = mysql_connect($bd_host, $bd_usuario, $bd_senha);
+                      mysql_select_db($bd_banco_dados); 
+                    </pre>
+                  </p>
+                </div>
+                <h4  id="lorem10">Mensagens de retorno de erro, sucesso e alerta</h4>
+                <div>
+                  <p>
+                    <ul>
+                        <li>
+                          <u>Mensagem de Erro:</u>
+                        </li>
+                    </ul>
+                  </p>
+                  <p>
+                    É importante essas mensagens informarem ao usuário de forma simples e sucinta 3 coisas: SEM FIRULAS<br>
+                    1- Qual erro ocorreu sem muitos detalhamentos, escreva uma mensagem para sua vó.<br>
+                    2- O que deve ser feito para não dar erro. Explique de forma MUITO simples o que fazer para sua vovó.<br>
+                    3- De forma complexa e rápida mostre algo para que um programador possa identificar o erro, caso seja algo sistêmico.<br>
+                  </p>
+                  <p>
+                    <b>Ex.:</b>
+                    Não foi possível salvar o pedido. Salve o endereço e tente novamente. (address not found - Erro 122) 
+                  </p>
+                  <p>
+                    <ul>
+                        <li>
+                          <u>Mensagem de Sucesso:</u>
+                        </li>
+                    </ul>
+                  </p>
+                  <p>
+                    Sempre seja simples e direto. SEM FIRULAS.<br>
+                    <b>Ex.:</b>
+                     Cliente salvo com sucesso.
+                    <b>Ex.:</b>
+                     Preço alterado com sucesso.
+                  </p>
+                  <p>
+                    <ul>
+                        <li>
+                          <u>Mensagem de Alerta:</u>
+                        </li>
+                    </ul>
+                  </p>
+                  <p>
+                    Sempre seja simples e direto. SEM FIRULAS.
+                  </p>
+                </div>
+            </div>
+          </section>
+        </div>
+<!-- Banco de Dados #########################################################################################-->
+        <div class="mdl-layout__tab-panel" id="aba2">
+         <section class="section-center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" >
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text">
+                <h3>BANCO DE DADOS</h3>
+                <p><b>Para manipulação de dados comuns:</b> PADRÃO MYSQL;</p>
+                <ul class="toc">
+                  <span>Índice Alfabético</span>
+                  <a href="#lorem5">Consultas - Select</a>
+                  <a href="#lorem6">Comandos Proibidos</a>
+                  <a href="#lorem1">Databases</a>
+                  <a href="#lorem3">Nomenclaturas de tabela e de colunas</a>
+                  <a href="#lorem7">Normalização</a>
+                  <a href="#lorem2">Tabelas</a>
+                  <a href="#lorem4">Tipos de Colunas de Tabelas</a>
+                  
+                </ul>
+                <h4 id="lorem2">Normalização</h4>
+                <div>
+                    <p>
+                      <ul>
+                        <li>
+                           Não crie base de dados com milhares de tabelas se relacionando, prefira incluir mais colunas em uma mesma tabela. Isso reduz o uso de JOINS nas consultas;
+                        </li>
+                      </ul>
+                    </p>
+                    <p>
+                      <b>Ex.:</b>
+                    </p>
+                    <p>
+                      Ao invés de criar:
+                    </p>
+                    <p>
+                        tables: (cliente,telefone_cliente,endereco_cliente,email_cliente)
+                    </p>
+                    <p>
+                      Crie:
+                    </p>
+                    <p>
+                      table: (cliente) e colunas(id_cliente,nome,telefone,endereco,email)
+                    </p>
+                </div>
+                <h4 id="lorem1">Databases</h4>
+                <div>
+                    <p>
+                      <ul>
+                        <li>
+                           Sempre usar o prefixo db_ e o nome da database. Sempre com letra minúscula. 
+                        </li>
+                      </ul>
+                    </p>
+                    <p>
+                      <b>Ex.: </b>db_joanaflores, db_mariaflores, db_pico
+                    </p>
+                </div>
+                <h4 id="lorem2">Tabelas</h4>
+                <div>
+                    <p>
+                      <ul>
+                        <li>
+                           Usar o prefixo adequado entre: e todo nome sempre com letra minúscula
+                        </li>
+                      </ul>
+                    </p>
+                    <p>
+                      tbd_ - tabela de dados - Ex.: tabela de produtos, clientes, endereços<br>
+                      tbi_ - tabela de informações - Ex.: tabela de status <br>
+                      tbr_ - tabela relacional - Ex.: tabela que relaciona uma tabela de cliente e uma tabela de endereçõs (n pra n)<br>
+                      tbl_ - tabela de log/histórico de alterações.
+                    </p>
+                    <p>
+                      <ul>
+                        <li>
+                           O nome da tabela deve ser curto e simples identificando o que contém aquela tabela
+                        </li>
+                      </ul>
+                    </p>
+                    <p>
+                      <b>Ex.: </b>
+                    </p>
+                    <p>
+                      <i>
+                        tbd_pedido<br>
+                        tbd_produto<br>
+                        tbi_status<br>
+                        tbd_floricultura<br>
+                        tbd_cidade<br>
+                        tbr_floricultura_cidade
+                      </i>
+                    </p>
+                </div>
+                <h4 id="lorem3">Nomenclaturas de tabela e colunas</h4>
+                <div>
+                    <p>
+                      <ul>
+                        <li>
+                           Nunca usar letra maiúscula;
+                        </li>
+                        <li>
+                           Não usar espaço em branco;
+                        </li>
+                        <li>
+                          Não usar hífen, acentos e caracteres especiais;
+                        </li>
+                        <li>
+                          Não usar verbos;
+                        </li>
+                        <li>
+                          Não utilizar palavras no plural;
+                        </li>
+                        <li>
+                          Não usar números;
+                        </li>
+                        <li>
+                          Separe as palavras com underline;
+                        </li>
+                        <li>
+                          Crie nomes sucintos e objetivos, não pode ter várias interpretações;
+                        </li>
+                        <li>
+                          ID - São chamados de id e não código;
+                        </li>
+                        <li>
+                          Nomes de Colunas Primary Keys: id
+                        </li>
+                        <li>
+                          Nomes de Colunas Foreign Keys: nome_tabela_nome_coluna
+                        </li>
+                      </ul>
+                    </p>
+                    <p>
+                      <b>Ex. de coluna Foreign Key: </b>
+                    </p>
+                    <p>
+                      <i>
+                        tbd_cliente_id<br>
+                        tbd_cidade_nome<br>
+                        tbd_floricultura_telefone
+                      </i>
+                    </p>
+                    <p>
+                      <b>Ex. de tabela: </b>
+                    </p>
+                    <p>
+                      <i>
+                        tbd_cliente<br>
+                        tbd_cidade
+                      </i>
+                    </p>
+                    <p>
+                      <b>Ex. de colunas: </b>
+                    </p>
+                    <p>
+                      <i>
+                        nome_cliente<br>
+                        email_cliente<br>
+                        id
+                      </i>
+                    </p>
+                </div>
+                <h4 id="lorem4">Tipos de Colunas de Tabelas</h4>
+                <div>
+                    <p>
+                      <ul>
+                        <li>
+                           Data - Tipo deve ser sempre date;
+                        </li>
+                        <li>
+                           Data e hora -  Tipo deve ser sempre datetime;
+                        </li>
+                        <li>
+                           Booleano -  Tipo deve ser sempre boolean (Se não houver esse campo, use tinyint(1));
+                        </li>
+                        <li>
+                           Palavras com tamanho de caracteres fixo - Tipo deve ser sempre char;<br>
+                           <b>Ex.:</b><br>
+                           <i>
+                             Coluna CEP - Tipo char(8)<br>
+                             Coluna CPF - Tipo char(11)
+                           </i>
+                        </li>
+                        <li>
+                           Palavras com tamanho de caracteres váriavel porém, existe um limite - Tipo deve ser sempre varchar;<br>
+                           <b>Ex.:</b><br>
+                           <i>
+                            Coluna Nome do Cliente - Tipo varchar(50)<br>
+                            Coluna Nome da Cidade - Tipo varchar(100)
+                           </i>
+                        </li>
+                        <li>
+                           Palavras com tamanho de caracteres váriavel e sem um limite - Tipo deve ser sempre text;<br>
+                           <b>Ex.:</b><br>
+                           <i>
+                           Coluna Mensagem do Cartão de Mensagem - Tipo text<br>
+                           Coluna Observação - Tipo text
+                           </i>
+                        </li>
+                        <li>
+                          Só use o campo text se for extremamente necessário, sempre opte pelo varchar com um limite adequado a necessidade.
+                        </li>
+                        <li>
+                          Use sempre o tamanho <u>correto</u> e o tipo <u>correto</u> sem prejudicar o formulário e sem sobrecarregar o banco de dados;
+                        </li>
+                        <li>
+                          Tipos de dados pequenos são mais rápidos.<br>
+                          Não é necessário criarmos um campo em uma tabela com o tipo de dado INT se esse valor em sua aplicação vai chegar até no máximo 1000. Tente utilizar MEDIUMINT, SMALLINT ou mesmo TINYINT, o mesmo caso se aplica para o CHAR, as consultas ficam mais velozes em campos com VARCHAR(10) do que CHAR(10), pois, registros com VARCHAR irá ficar dessa maneira em sua tabela: “0123”, enquanto o CHAR irá ocupar todos os espaços: “0123“.
+                        </li>
+                      </ul>
+                    </p>
+                </div>
+                <h4 id="lorem5">Consultas - Select</h4>
+                <div>
+                   <p>
+                      <ul>
+                        <li>
+                           Use várias consultas simples isentas ou com o mínimo de <i>JOIN</i> ao invés de uma consulta complexa com inúmeros <i>JOINS</i>.
+                        </li>
+                        <li>
+                           Sempre traga apenas as colunas necessárias, não traga mais colunas do que o necessário e muito menos faça consultas com asterisco <i>(select * from)</i>;
+                        </li>
+                        <li>
+                            Em <i>WHERE</i> e <i>ON</i> use sempre colunas do tipo int, só use outro tipo se não houver outra opção. <br>
+                            <b>Ex.:</b>
+                            <pre name="code" class="sql">
+                                select id from tbd_cliente where id_cliente = 5;
+                            </pre>
+                        </li>
+                        <li>
+                           Fazer consultas dentro de laços de repetição pode ser extremamente danoso para o servidor, evite fortemente essa prática;
+                        </li>
+                        <li>
+                           O comando select do MySQL oferece inúmeras opção para se fazer a mesma consulta, SEMPRE opte pela que sobrecarrega menos a memória do servidor de banco.
+                        </li>
+                        <li>
+                           Opte SEMPRE por fazer manipulações, formatações e condições na linguagem de programação (PHP/Javascript/etc), ao invés de usar funções do MySQL para esse objetivo. 
+                        </li>
+                        <li>
+                           O servidor de banco de dados deve ser poupado! Deixe o servidor com PHP trabalhar mais que o MySQL!
+                        </li>
+                        <li>
+                           Sempre que você tiver certeza que um registro retornará apenas um resultado inclua o LIMIT 1, isso aumenta o desempenho de sua consulta, pois, desta forma a tabela não será toda processada e sim processada até ser encontrado o primeiro resultado.
+                        </li>
+                         <li>
+                           De maneira nenhuma use: ORDER BY RAND();
+                        </li>
+                        <li>
+                           Monitore o arquivo <i>/var/log/mysql/mysql-slow.log</i> para descobrir possíveis consultas pesadas para o banco e MELHORE;
+                        </li>
+                      </ul>
+                    </p>
+                </div>
+                <h4 id="lorem6" class="alert-titulo">Comandos Proibidos</h4>
+                <div>
+                    <p>Em ambiente de produção em hipótese alguma use esses comandos:</p>
+                    <p>
+                      <ul>
+                        <li>
+                            <strike><i>delete</i></strike>
+                        </li>
+                        <li>
+                           <strike><i>drop</i></strike>
+                        </li>
+                        <li>
+                           <strike><i>truncate</i></strike>
+                        </li>
+                      </ul>
+                    </p>
+                </div>
+                
+              </div>
+            </div>
+          </section>
+        </div>
+<!-- CSS/HTML ##################################################################################################-->
+        <div class="mdl-layout__tab-panel" id="aba3">
+         <section class="section-center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" >
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text">
+                <h3>CSS/HTML</h3>
+                <ul class="toc">
+                  <span>Índice Alfabético</span>
+                  <a href="#lorem1">Comentários</a>
+                  <a href="#lorem2">Nomenclatura: Geral</a>
+                  <a href="#lorem3">Nomenclatura: id, name e class</a>
+                  <a href="#lorem4">Seletores</a>
+                </ul>
+                <p><b class="alert-titulo">USABILIDADE!</b></p>
+                <p class="alert-texto">
+                  Em primeiro lugar, se tratando de qualquer aplicativo/sistema/site/etc que pode ser acessado via computador/notebook/celular/tablet, a usabilidade DEVE ser a coisa MAIS IMPORTANTE! 
+                </p>
+                <div>
+                    <p>
+                      <ul>
+                        <li>
+                           Use <u>classes</u> para criar e reaproveitar código CSS, não coloque estilo nas tags html!
+                        </li>
+                        <li>
+                           Não use IDs para criar estilo.
+                        </li>
+                        <li>
+                           Sempre que possível, utilize bibliotecas para auxílio do desenvolvimento e produtividade. <b>Não reinvente a roda</b>! Templates, frameworks, e estilos prontos existem para facilitar nosso trabalho. 
+                        </li>
+                        <li>
+                           Sempre mantenha a identidade visual do sistema que você está modificando ou criando. Não crie um carnaval, onde cada tela possui uma identidade visual. Padronize! Padronize cores, espaçamentos, fontes, tamanho de fontes, cores de botões, etc. Não reinvente a roda! Alguém já criou a identidade visual. Copie-a! 
+                        </li>
+                      </ul>
+                    </p>
+                </div>
+                <h4 id="lorem1">Comentários</h4>
+                <div>
+                    <p>
+                      <ul>
+                        <li>
+                           CSS também deve ser comentado! (Só não comente seu código se TODOS da equipe tiverem memória fotográfica (o que não é o caso no momento, ou é?)
+                        </li>
+                        <li>
+                           Sempre verifique se as propriedades utilizadas são suportadas pelos principais navegadores.<br>
+                          Você pode conferir aqui: https://www.w3schools.com/cssref/css3_browsersupport.asp
+
+                        </li>
+                        <li>
+                           Evite repetição de código, reutilize! Crie classes gerais para estilos que se repetem.
+                           Antes de criar uma classe nova, verifique se não existe algo parecido que possa ser reutilizado. Botões, por exemplo, seguem um padrão e devem utilizar uma classe padronizada. 
+                        </li>
+                      </ul>
+                    </p>
+                </div>
+                <h4 id="lorem2">Nomenclatura: Geral</h4>
+                <div>
+                    <p>
+                      <ul>
+                        <li>
+                           Dê bons nomes para suas classes, name e ids. Os nomes devem ser previsíveis.
+                        </li>
+                      </ul>
+                    </p>
+                    <p>
+                      <b>Ex. ruim:</b>
+                      <pre name="code" class="html">
+                        <span class="xyz">
+                          <a href=”artigos.php”>Ver Mais</a>
+                        </span>
+                      </pre>
+                    </p>
+                    <p>
+                      <ul>
+                        <li>
+                           Depois, quando a classe .xyz for encontrada no css, ninguém vai saber para que serve. Utilize algo como:
+                        </li>
+                      </ul>
+                    </p>
+                    <p>
+                      <b>Ex. CERTO:</b>
+                      <pre name="code" class="html">
+                          <span class="ver-mais">
+                            <a href=”artigos.php”>Ver Mais</a>
+                          </span>
+                      </pre>
+                    </p>
+                </div>
+                <h4 id="lorem3">Nomenclatura: id, name e class</h4>
+                <div>
+                    <p>
+                      <ul>
+                        <li>
+                           Utilize hífen para ID, name e classes;
+                        </li>
+                      </ul>
+                    </p>
+                    <p>
+                      <b>Ex.:</b>
+                      <pre name="code" class="html">
+                          <div  class="separado-por-hifen" id="minha-div"></div>
+                      </pre>
+                    </p>  
+                </div>
+                <h4 id="lorem4">Seletores</h4>
+                <div>
+                    <p>
+                      <ul>
+                        <li>
+                           Dê preferência a declaração abreviada das propriedades;
+                        </li>
+                      </ul>
+                    </p>
+                    <p>
+                      <b>Ex. de classe sem o uso de declaração abreviada:</b>
+                      <pre name="code" class="css">
+                          .seletor {
+                              margin-top: 2px;
+                              margin-right: 3px;
+                              margin-bottom: 5px;
+                              margin-left: 9px;
+                          }
+                      </pre>
+                    </p>  
+                    <p>
+                      <b>Ex. utilizando a declaração abreviada:</b>
+                      <pre name="code" class="css">
+                          .seletor {
+                              margin: 2px 3px 5px 9px; /* top right bottom left */
+                          }
+                      </pre>
+                    </p>  
+                    <p>
+                      <ul>
+                        <li>
+                           Faça uma divisão do CSS colocando mais acima do arquivo as estruturas mais gerais e as mais específicas abaixo do arquivo e coloque comentários para dividir;
+                        </li>
+                        <li>
+                           Separe todo estilo de formulários com comentários para melhor visualização da divisão:
+                        </li>
+                      </ul>
+                    </p>
+                    <p>
+                      <b>Ex.:</b>
+                      <pre name="code" class="css">
+                          /*
+                          * Formulários
+                          */
+                          //Códigos de Estilo 
+                          /*
+                          *.// Fim dos Formulários
+                          */
+                      </pre>
+                    </p>  
+                    <p>
+                      <b>Ex. de divisão: </b>Estilos globais, Cabeçalho da página, Estrutura da página, Rodapé, Estilos de títulos, Estilos de texto, Navegação, Formulários.
+                      <pre name="code" class="css">
+                          /**
+                          *
+                          * Estilos Globais
+                          * 
+                          * (resets, corpo da página, estilo padrão para parágrafos, listas, etc.)
+                          *
+                          */
+                          .classe { ... }
+                          .outra-classe { ... }
+                          .mais-uma-classe { ... }
+
+                          /**
+                          *
+                          * Cebeçalho da página
+                          * 
+                          * (logo, menu, barra de pesquisa, mini cart, etc.)
+                          *
+                          */
+                          .classe { ... }
+                          .outra-classe { ... }
+                          .mais-uma-classe { ... }
+                      </pre>
+                    </p> 
+                    <p>
+                      <ul>
+                        <li>
+                           Responsividade: Seu site/sistema será acessado por diversos dispositivos com resoluções diferentes? Se sim, ele deve ser responsivo!
+                        </li>
+                        <li>
+                           Números mágicos são um mal sinal no CSS. Dê preferência a unidades flexíveis (%, em).
+                        </li>
+                         <li>
+                           "Toda vez que você escreve um margin-top:37px ou um width:381px um bebê foca morre." R.I.P foquinhas
+                        </li>
+                         <li>
+                           Em uma página de 940px de largura, para fazer a divisão em 5 colunas, ao invés de:
+                        </li>
+                      </ul>
+                    </p>
+                    <p>
+                      <pre name="code" class="css">
+                          .coluna {
+                            width:188px;
+                          }
+                      </pre>
+                    </p>  
+
+                    <p>
+                      Utilize:
+                      <pre name="code" class="css">
+                          .coluna {
+                            width:20%;
+                          }
+                      </pre>
+                    </p>  
+                    <p>
+                      <ul>
+                        <li>
+                           Pense bem se não existe outra forma, mas se usar um tamanho fixo for a única solução, trate as resoluções que forem utilizadas e comente o motivo da exceção (se não, depois ninguém vai saber o motivo daquele 57px). 
+                        </li>
+                        <li>
+                           Utilize as propriedades float e position com cautela!<br>
+                           Float e Position são propriedades de posicionamento e podem se tornar um problema se não forem usadas corretamente, atrapalhando a responsividade e a experiência do usuário. <br>
+                            Tente utilizar a propriedade display:flex, ela facilita a criação de uma estrutura de layout flexível e responsiva sem o uso de float ou position.<br>
+                             https://www.w3schools.com/css/css3_flexbox.asp
+                        </li>
+                        <li class="alert-texto">
+                            <u>
+                              <b>
+                                *Usar position:absolute e tratar cada resolução de tela existente não é responsividade, é uma gambiarra muito feia e faz o coleguinha (e o seu eu futuro) chorar :(
+                              </b>
+                            </u>
+                        </li>
+                        <li>
+                           Teste seu design em mais de uma resolução. O seu monitor não é o monitor do seu usuário
+                        </li>
+                        <li>
+                           Resolução de Tela mais comuns:
+                        </li>
+                        <li>
+                           1. 1366x768
+                        </li>
+                        <li>
+                           2. 360x640
+                        </li>
+                        <li>
+                           3. 375x667
+                        </li>
+                        <li>
+                           Navegadores mais comuns:
+                        </li>
+                        <li>
+                           1. Chrome
+                        </li>
+                        <li>
+                           2. Safari
+                        </li>
+                        <li>
+                           3. Firefox
+                        </li>
+                         <li>
+                           Verifique as resoluções e os navegadores mais utilizados em sua aplicação, pelo menos nestas telas o sistema/site deve ficar perfeitamente navegável. 
+                        </li>
+                      </ul>
+                    </p>
+                    <p>
+                      <b>IMPORTANTE:</b>
+                      <ul>
+                        <li>
+                            A interface é o que possibilita a comunicação do usuário e o sistema e uma interface complexa pode causar a inutilização deste sistema. Sem uma interface eficiente, os clientes não compram e os funcionários não são produtivos! 
+
+                        </li>
+                        <li>
+                            Pense sempre na usabilidade. Usabilidade NÃO é fazer só uma interface bonita é fazer uma interface simples, fácil e eficiente para o usuário!
+                        </li>
+                        <li>
+                            Lembre-se sempre: A tela não será para você, será para o USUÁRIO! Faça telas e funcionalidades que não precise de um manual de instruções, e que não precise de aula para mexer. Deve ser SEMPRE <b>intuitiva</b>!
+                        </li>
+                      </ul>
+                    </p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+<!--Controle de Versão ###########################################################################################-->
+        <!--<div class="mdl-layout__tab-panel" id="aba4">
+         <section class="section-center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" >
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text">
+                <h3>BANCO DE DADOS</h3>
+                <p><b>Para manipulação de dados comuns:</b> PADRÃO MYSQL;</p>
+                <ul class="toc">
+                  <span>Índice Alfabético</span>
+                  <a href="#lorem5">Comandos Proibidos</a>
+                  <a href="#lorem1">Databases</a>
+                  <a href="#lorem3">Nomenclaturas de tabela e de colunas</a>
+                  <a href="#lorem2">Tabelas</a>
+                  <a href="#lorem4">Tipos de Colunas de Tabelas</a>
+                  
+                </ul>
+                <h4 id="lorem1">Databases</h4>
+                <div>
+                    <p>
+                      <ul>
+                        <li>
+                           Sempre usar o prefixo db_ e o nome da database. Sempre com letra minúscula. 
+                        </li>
+                      </ul>
+                    </p>
+                    <p>
+                      <b>Ex.: </b>db_joanaflores, db_mariaflores, db_pico
+                    </p>
+                </div>
+     
+              </div>
+            </div>
+          </section>
+        </div>-->
+<!-- Arquivos e Diretórios ##########################################################################################-->
+        <div class="mdl-layout__tab-panel" id="aba5">
+         <section class="section-center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" >
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text">
+                <h3>ARQUIVOS E DIRETÓRIOS</h3>
+                <ul class="toc">
+                  <span>Índice Alfabético</span>
+                  <a href="#lorem7">Nomenclatura Geral</a>
+                  <a href="#lorem1">.js</a>
+                  <a href="#lorem2">.css</a>
+                  <a href="#lorem3">.php</a>
+                  <a href="#lorem4">.phtml</a>
+                  <a href="#lorem5">.html</a>
+                  <a href="#lorem6">.log</a>
+
+                </ul>
+                <h4 id="lorem7">Nomenclatura Geral</h4>
+                <div>
+                    <p>
+                      <ul>
+                        <li>
+                            Não usar espaços em branco;
+                        </li>
+                        <li>
+                            Não usar acentos e caracteres especiais;
+                        </li>
+                        <li>
+                            Crie nomes sucintos e objetivos, não pode ter várias interpretações;
+                        </li>
+                        <li>
+                            <u>É de extrema importância que um sistema desenvolvido em um framework/plataforma siga todos os padrões e regras deste framework/plataforma;</u>
+                        </li>
+                        <li>
+                            Caso não houver padrões pré determinados por framework/plataforma siga a nomenclatura a seguir dependendo da extensão:
+                        </li>
+                      </ul>
+                    </p>
+                </div>
+                <h4 id="lorem1">.js</h4>
+                <div>
+                    <p>
+                      <ul>
+                        <li>
+                           Todas letras minúsculas;
+                        </li>
+                        <li>
+                           Separar palavras com hífen;
+                        </li>
+                        <li>
+                           Se o arquivo usar jQuery, usar como prefixo a palavra jquery e ponto (.);
+                        </li>
+                        <li>
+                           Se o arquivo for minificado inclua .min antes da extensão;
+                        </li>
+                      </ul>
+                    </p>
+                    <p>
+                      <b>Ex. js com javascript apenas:</b>
+                    </p>
+                    <p>
+                      bootstrap.js
+                    </p>
+                    <p>
+                      <b>Ex. js com jQuery:</b>
+                    </p>
+                    <p>
+                      jquery.mascara.js
+                    </p>
+                    <p>
+                      <b>Ex. js minificado:</b>
+                    </p>
+                    <p>
+                      custom.min.js
+                    </p>
+                    <p>
+                      <b>Ex. de nome com mais de uma palavra:</b>
+                    </p>
+                    <p>
+                        custom-input.js<br>
+                        mascara-campo.min.js<br>
+                        jquery.tema-custom.js<br>
+                        jquery.tema-home.min.js
+                    </p>
+                </div>
+                <h4 id="lorem2">.css</h4>
+                <div>
+                    <p>
+                      <ul>
+                        <li>
+                           Em um sistema crie:  <br>
+                           - 1 arquivo para estilos gerais (usado em todas as páginas do sistema);<br>
+                           - 1 arquivo para estilos customizados por tela do sistema; E crie esse arquivo com o nome da tela ou da URL para saber exatamente de qual tela se trata;
+                        </li>
+                        <li>
+                           Todas letras minúsculas;
+                        </li>
+                        <li>
+                           Separar palavras com hífen;
+                        </li>
+                      </ul>
+                    </p>
+                    <p>
+                      <b>Ex.:</b>
+                    </p>
+                    <p>
+                      styles-custom.php
+                    </p>
+                </div>
+                <h4 id="lorem3">.php</h4>
+                <div>
+                    <p>
+                      Se for <b><u>class</u></b>:
+                    </p>  
+                    <p>
+                      <ul>
+                        <li>
+                           Padrão CamelCase;
+                        </li>
+                      </ul>
+                    </p>
+                    <p>
+                      <b>Ex.:</b>
+                    </p>
+                    <p>
+                      IndexController.php
+                    </p>
+                    <p>
+                      Se não for <b><u>class</u></b>:
+                    </p>  
+                    <p>
+                      <ul>
+                        <li>
+                           Todas letras minúsculas;
+                        </li>
+                        <li>
+                           Separar palavras com underline;
+                        </li>
+                      </ul>
+                    </p>
+                    <p>
+                      <b>Ex.:</b>
+                    </p>
+                    <p>
+                      ver_pedido.php<br>
+                      precos_uniflores.php
+                    </p>
+                </div>
+                <h4 id="lorem4">.phtml</h4>
+                <div>
+                    <p>
+                      <ul>
+                        <li>
+                           Todas letras minúsculas;
+                        </li>
+                        <li>
+                           Separar palavras com underline;
+                        </li>
+                      </ul>
+                    </p>
+                    <p>
+                      <b>Ex.:</b>
+                    </p>
+                    <p>
+                      ver_pedido.phtml<br>
+                      precos_uniflores.phtml
+                    </p>
+                </div>
+                <h4 id="lorem5">.html</h4>
+                <div>
+                    <p>
+                      <ul>
+                        <li>
+                           Todas letras minúsculas;
+                        </li>
+                        <li>
+                           Separar palavras com underline;
+                        </li>
+                      </ul>
+                    </p>
+                    <p>
+                      <b>Ex.:</b>
+                    </p>
+                    <p>
+                      home_custom.html<br>
+                      head.html
+                    </p>
+                </div>
+                <h4 id="lorem6">.log</h4>
+                <div>
+                    <p>
+                      <ul>
+                        <li>
+                           Todas letras minúsculas;
+                        </li>
+                        <li>
+                           Separar palavras com underline;
+                        </li>
+                      </ul>
+                    </p>
+                    <p>
+                      <b>Ex.:</b>
+                    </p>
+                    <p>
+                      error_log.log<br>
+                      cron.log
+                    </p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+<!--Estruturas e Servidores #######################################################################################################-->
+        <div class="mdl-layout__tab-panel" id="aba6">
+         <section class="section-center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" >
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text">
+                <h3>ESTRUTURA DE SERVIDORES</h3>
+                <ul class="toc">
+                  <span>Índice Alfabético</span>
+                  <a href="#lorem1">Teste</a>
+                  <a href="#lorem2">DEV - Desenvolvimento</a>
+                  <a href="#lorem3">Produção</a>
+                </ul>
+                <h4 id="lorem1">Teste (Acesso ao DB de Produção)</h4>
+                <div>
+                    <p>
+                      <ul>
+                        <li>
+                            Servidor Front para Testes com acesso ao BD de produção.
+                        </li>
+                      </ul>
+                    </p>
+                </div>
+
+                <h4 id="lorem2">DEV - Desenvolvimento (Sem nenhum acesso a produção)</h4>
+                <div>
+                    <p>
+                      <ul>
+                        <li>
+                            Servidor Front para Testes.
+                        </li>
+                        <li>
+                            Servidor DB para Testes.
+                        </li>
+                      </ul>
+                    </p>
+                </div>
+                <h4 id="lorem3">Produção (FRONT e DB de produção)</h4>
+                <div>
+                    <p>
+                      <ul>
+                        <li>
+                            Servidor Front de produção.
+                        </li>
+                        <li>
+                            Servidor DB de produção.
+                        </li>
+                      </ul>
+                    </p>
+                </div>
+     
+              </div>
+            </div>
+          </section>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- FOOTER ############################################################################################################-->
+        <footer class="mdl-mega-footer">
+          <div class="mdl-mega-footer--bottom-section">
+            <div class="mdl-center">
+               © Isabela Flores Intermediações LTDA. - Criado em: 2018
+            </div>
+          </div>
+        </footer> 
+<!-- ./ FOOTER ############################################################################################################-->
+      </main>
+    </div>
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script language="javascript" src="SyntaxHighlighter/Scripts/shCore.js"></script>
+    <script language="javascript" src="SyntaxHighlighter/Scripts/shBrushCSharp.js"></script>
+    <script language="javascript" src="SyntaxHighlighter/Scripts/shBrushXml.js"></script>
+    <script language="javascript" src="SyntaxHighlighter/Scripts/shBrushPhp.js"></script>
+    <script language="javascript">
+      dp.SyntaxHighlighter.ClipboardSwf = '/flash/clipboard.swf';
+      dp.SyntaxHighlighter.HighlightAll('code');
+    </script>
+  </body>
+</html>
