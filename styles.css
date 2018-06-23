@@ -274,6 +274,7 @@ p{
 .alert-teste-desfazer{
   color:red;
   font-size:15px;
+  display:none;
   backgroud-color:blue;
 
 }
